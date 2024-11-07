@@ -1,4 +1,3 @@
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -11,7 +10,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: naresh.co.in
+      http:
         paths:
           - path: /api
             pathType: Prefix
@@ -27,4 +27,3 @@ spec:
                 name: frontend
                 port:
                   number: 3000
-
