@@ -5,9 +5,8 @@ metadata:
   namespace: three-tier
 spec: 
   ports:
-  - port: 80
+  - port: 3500
     protocol: TCP
-    targetPort: 3000
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     role: api
