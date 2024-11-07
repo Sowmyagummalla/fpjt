@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "us-east-1"  # Specify your desired region
+  region = "ap-south-1"  # Specify your desired region
 }
 
  #Creating IAM role for EKS
   resource "aws_iam_role" "master" {
-    name = "veera-eks-master"
+    name = "sowmya-eks-master"
 
     assume_role_policy = jsonencode({
       "Version": "2012-10-17",
@@ -106,7 +106,7 @@ provider "aws" {
 
   resource "aws_iam_instance_profile" "worker" {
     depends_on = [aws_iam_role.worker]
-    name       = "veera-eks-worker-new-profile"
+    name       = "sowmya-eks-worker-new-profile"
     role       = aws_iam_role.worker.name
   }
  
@@ -169,7 +169,7 @@ data "aws_security_group" "selected" {
     instance_types  = ["t2.small"]
 
     remote_access {
-      ec2_ssh_key               = "provisioner"
+      ec2_ssh_key               = "cluster"
       source_security_group_ids = [data.aws_security_group.selected.id]
     }
 
