@@ -106,7 +106,7 @@ provider "aws" {
 
   resource "aws_iam_instance_profile" "worker" {
     depends_on = [aws_iam_role.worker]
-    name       = "sowmya-eks-worker-new-profile"
+    name       = "new-eks-worker-new-profile"
     role       = aws_iam_role.worker.name
   }
  
